@@ -10,3 +10,62 @@
     position: relative;
 
 }
+.title {
+    overflow: hidden;
+    max-width: 60rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    line-height: 5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .title a.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  } 
+  .title a.candidate {
+    font-size: 1rem;
+    color: #fff;
+  } 
+  
+  
+  
+  .right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .header{
+        height: 16vh;
+    }
+    .title {
+      display: block;
+      max-width: 24rem;
+      padding: 1rem;
+      
+    }
+    .title a {
+      float: none;
+      display: block;
+      text-align: center;
+      line-height: 2rem;
+      padding: 0.2rem;
+    }
+  
+    .right {
+      float: none;
+    }
+  
+  }
