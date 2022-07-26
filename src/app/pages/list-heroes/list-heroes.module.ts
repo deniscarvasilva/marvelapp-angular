@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [ ListHeroesComponent],
   imports: [
+    
     CommonModule,
     RouterModule.forChild([{ path: '', component: ListHeroesComponent }])
   ],

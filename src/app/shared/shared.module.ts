@@ -6,6 +6,7 @@ import { SearchComponent } from './search/search.component';
 
 
 
+
 @NgModule({
   declarations: [ HeaderComponent, SearchComponent],
   imports: [ CommonModule, RouterModule ],

@@ -1,4 +1,6 @@
-export class Hero {
+import { DeserializableModel } from "./deserializable.model";
+
+export class Hero implements DeserializableModel{
 
     id: number;
     name: string;
@@ -10,32 +12,16 @@ export class Hero {
     stories: Arrival;
     events: Arrival;
     urls: URLHero[];
-  
-  
-    constructor(
-      id: number,
-      name: string,
-      description: string,
-      thumbnail: Image,
-      resourceURI: string,
-      comics: Arrival,
-      series: Arrival,
-      stories: Arrival,
-      events: Arrival,
-      urls: URLHero[]
-    ) {
-      this.id = id;
-      this.name = name;
-      this.description = description;
-      this.thumbnail = thumbnail;
-      this.resourceURI = resourceURI;
-      this.comics = comics;
-      this.series = series;
-      this.stories = stories;
-      this.events = events;
-      this.urls = urls;
-  
+
+    deserialize(input: any) {
+      Object.assign(this, input);
+      return this;
     }
+    getImage() {
+      return this.thumbnail.path + '.' + this.thumbnail.extension;
+    }
+   
+    
   }
   
   interface Image {

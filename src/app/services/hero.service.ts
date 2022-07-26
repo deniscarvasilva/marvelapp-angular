@@ -14,13 +14,22 @@ export class HeroService {
 
   getCharacters() {
     const page = this.setCategory('characters');
-    this.http.get<any>(page).pipe(map((data: any) => data.data)).subscribe(data => {      
-      this.listHeroes$.next(data.results);
-     
-    })
+    this.http
+    .get<any>(page)
+    .pipe(map((data: any) => data.data))
+    .subscribe((data: any) => {
+      
+      // Organizando o array com os personagens (Boas práticas typeScript: Dados fortemente tipados)
+      var personagens: Hero[] = data.results.map(
+        (personagem: Hero) => {
+          return personagem = new Hero().deserialize(personagem);
+        }
+      );
+
+      console.log('personagens', personagens)
+      this.listHeroes$.next(personagens);
+    });
   }
-
-
   setCategory(page: string): string {
     return `${environment.apiURL + page}`;
   }
