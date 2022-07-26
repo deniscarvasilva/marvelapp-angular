@@ -6,6 +6,7 @@ import { AccessInterceptor } from './access.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
+import { ListHeroesModule } from './pages/list-heroes/list-heroes.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HomeModule,
     SharedModule,
+    ListHeroesModule
 
     
   ],
