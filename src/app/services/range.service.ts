@@ -9,15 +9,19 @@ import { HeroService } from './hero.service';
 export class RangeService {
   listHeroesSliced$: Subject<Hero[]> = new Subject();
   listHeroesTotal: Hero[] = [];
+  private range: number[] = [];
   private init = 0;
   private slice = 10;
   private prevStatus: boolean = false;
   constructor(private heroService: HeroService,) {
     heroService.listHeroes$.subscribe(list => {
-      this.listHeroesTotal = list;
-      this.resetSlice();
-      this.changePositionSlice();
+      this.refreshList(list);
     });
+  }
+  refreshList(list: Hero[]): void {
+    this.listHeroesTotal = list;
+    this.resetSlice();
+    this.changePositionSlice();
   }
   prev() {
     if (this.init > 0) {
@@ -55,5 +59,9 @@ export class RangeService {
   changePositionSlice() {
     this.listHeroesSliced$.next(
       this.listHeroesTotal.slice(this.init, this.slice))
+  }
+
+  getRange() {
+    return this.range;
   }
 }
