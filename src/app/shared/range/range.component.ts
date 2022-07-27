@@ -7,8 +7,6 @@ import { RangeService } from 'src/app/services/range.service';
   styleUrls: ['./range.component.scss']
 })
 export class RangeComponent implements OnInit {
-  listRange: number[] = [];
-  //duas listas!!!! uma com o slice configurado
   constructor(private rangeService: RangeService) { }
 
   ngOnInit(): void {
