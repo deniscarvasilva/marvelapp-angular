@@ -1,11 +1,11 @@
 # Marvel Application
-This project was created by Veronica Ciolfi, as a skill comprehensive test, 
+This project was created by Denis Carvalho, as a skill test, 
 in order to run this project you need to run the command line `npm install`, and then run the command `ng serve`.
 
 # Requirements
 [NodeJS](https://nodejs.org/en/) - Using the version 16.16.0
 
-[Angular CLI] (https://angular.io/guide/setup-local#install-the-angular-cli)
+[Angular CLI](https://angular.io/guide/setup-local#install-the-angular-cli)
 
 It is required that you already have installed Angular CLI and NodeJS.
 _________
@@ -16,4 +16,12 @@ If this key and hash are expired, then you need to refer to the link: [MARVEL AP
 There you can create a new account and then use the provided 
 keys to generate a new hash. After that you can set up the environment credentials.
 
-To generate the new hash, go to [MD5 Generator](https://www.md5hashgenerator.com/)
+To generate the new hash, go to[MD5 Generator](https://www.md5hashgenerator.com/)
+combine the timestamp, in this case 1, add your personal private key and then your public key.
+The new hash will be generated, then you can use in the environment.ts file inside the src/app/environments folder.
+
+
+# How to start the application
+
+After you installed Angular CLI and NodeJS
+copy the repository into a
