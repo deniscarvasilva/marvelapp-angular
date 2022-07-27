@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/services/hero.service';
+import { RangeService } from 'src/app/services/range.service';
 
 @Component({
   selector: 'app-list-heroes',
@@ -9,8 +10,8 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class ListHeroesComponent implements OnInit {
   list: Hero[] = [];
-  constructor(private heroService: HeroService) {
-    this.heroService.listHeroes$.subscribe(data => this.list = data);
+  constructor(private rangeService: RangeService, private heroService: HeroService) {
+    this.rangeService.listHeroesSliced$.subscribe(data => {this.list = data;console.log(this.list)});
    }
 
   ngOnInit(): void {

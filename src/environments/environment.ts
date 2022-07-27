@@ -12,8 +12,9 @@ export const accessRequest = {
   ts: '1',
   apikey: '6eb0a966dabd8c88737f03befe6c4dbf',
   hash: 'b474dac9518c1c4806850d108e8f4300',
-
+  limit: 100,
 };
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

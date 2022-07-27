@@ -1,15 +1,16 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { accessRequest, environment } from 'src/environments/environment';
 import { Hero } from '../models/hero';
+import { RangeService } from './range.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
   listHeroes$: Subject<Hero[]> = new Subject();
-
+  offset:number = 0;
   constructor(private http: HttpClient) { }
 
   getCharacters() {
@@ -19,7 +20,6 @@ export class HeroService {
     .pipe(map((data: any) => data.data))
     .subscribe((data: any) => {
       
-      // Organizando o array com os personagens (Boas práticas typeScript: Dados fortemente tipados)
       var personagens: Hero[] = data.results.map(
         (personagem: Hero) => {
           return personagem = new Hero().deserialize(personagem);
@@ -31,6 +31,15 @@ export class HeroService {
     });
   }
   setCategory(page: string): string {
-    return `${environment.apiURL + page}`;
+    return `${environment.apiURL + page}?&offset=${this.offset}`;
+  }
+  incrementOffSet() {
+    this.offset += accessRequest.limit;
+  }
+  decrementOffSet() {
+    this.offset > 0 ? this.offset -= accessRequest.limit : false;
+  }
+  getOffSet(): number {
+    return this.offset;
   }
 }
