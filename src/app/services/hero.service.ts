@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, Subject } from 'rxjs';
 import { accessRequest, environment } from 'src/environments/environment';
 import { Hero } from '../models/hero';
-import { RangeService } from './range.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +10,7 @@ import { RangeService } from './range.service';
 export class HeroService {
   listHeroes$: Subject<Hero[]> = new Subject();
   offset:number = 0;
+  filter:string = "";
   constructor(private http: HttpClient) { }
 
   getCharacters() {
@@ -26,12 +26,12 @@ export class HeroService {
         }
       );
 
-      console.log('personagens', personagens)
       this.listHeroes$.next(personagens);
     });
   }
   setCategory(page: string): string {
-    return `${environment.apiURL + page}?&offset=${this.offset}`;
+    const startWith = this.filter ? "&nameStartsWith=" + this.filter : "";
+    return `${environment.apiURL + page}?&offset=${this.offset}${startWith}`;
   }
   incrementOffSet() {
     this.offset += accessRequest.limit;

@@ -1,4 +1,4 @@
 <div class="search">
-    <input type="text" class="text" placeholder="Pesquise o herói">
-    <button>search</button>
+    <input type="text" class="text" placeholder="Pesquise o herói" [(ngModel)]="heroService.filter">
+    <button (click)="goSearch()">search</button>
 </div>
