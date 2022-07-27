@@ -7,26 +7,19 @@
             <th class="mobile">Series</th>
             <th class="mobile">Eventos</th>
         </tr>
-        <tr *ngFor="let hero of list">
+        <tr *ngFor="let hero of list" (click)="descriptionHero(hero.id)">
             <td>
-                <img [src]="hero.getImage()" alt="hero" />
+                <app-hero-image [hero]="hero"></app-hero-image>
             </td>
-            <td>{{hero.name}}</td>
-
+            <td>
+                <app-hero-name [hero]="hero"></app-hero-name>
+            </td>
             <td *ngIf="hero.series.items.length; else noRegister">
-                <div *ngFor="let item of hero.series.items | slice:0:3">
-                    <div class="mobile">{{item.name | slice:0:27}}...</div>
-                </div>
+                <app-hero-series [hero]="hero"></app-hero-series>
             </td>
             <td *ngIf="hero.events.items.length; else noRegister">
-                <div *ngFor="let item of hero.events.items | slice:0:3">
-                    <div class="mobile">{{item.name}}</div>
-                </div>
+                <app-hero-events [hero]="hero"></app-hero-events>
             </td>
-
-
-
-
         </tr>
     </table>
 </div>

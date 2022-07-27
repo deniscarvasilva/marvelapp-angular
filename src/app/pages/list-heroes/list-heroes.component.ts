@@ -18,6 +18,9 @@ export class ListHeroesComponent implements OnInit {
     this.heroService.getCharacters();
   }
 
+  descriptionHero(id:number) {
+    
+  }
 
 
 }
