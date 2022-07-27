@@ -14,10 +14,10 @@
             <td>
                 <app-hero-name [hero]="hero"></app-hero-name>
             </td>
-            <td *ngIf="hero.series.items.length; else noRegister">
+            <td *ngIf="hero.series.items.length; else noRegister" class="mobile">
                 <app-hero-series [hero]="hero"></app-hero-series>
             </td>
-            <td *ngIf="hero.events.items.length; else noRegister">
+            <td *ngIf="hero.events.items.length; else noRegister" class="mobile">
                 <app-hero-events [hero]="hero"></app-hero-events>
             </td>
         </tr>

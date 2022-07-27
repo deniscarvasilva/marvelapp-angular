@@ -27,6 +27,6 @@ table {
   }
   @media screen and (max-width: 600px) {
     .mobile{
-      visibility:hidden;
+      display: none;
     }
   }
