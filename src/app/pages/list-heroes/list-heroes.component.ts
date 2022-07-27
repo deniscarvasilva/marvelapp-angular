@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/services/hero.service';
 import { RangeService } from 'src/app/services/range.service';
@@ -10,7 +11,10 @@ import { RangeService } from 'src/app/services/range.service';
 })
 export class ListHeroesComponent implements OnInit {
   list: Hero[] = [];
-  constructor(private rangeService: RangeService, private heroService: HeroService) {
+  constructor(
+    private rangeService: RangeService, 
+    private heroService: HeroService,
+    private router: Router) {
     this.rangeService.listHeroesSliced$.subscribe(data => {this.list = data;console.log(this.list)});
    }
 
@@ -19,6 +23,7 @@ export class ListHeroesComponent implements OnInit {
   }
 
   descriptionHero(id:number) {
+    this.router.navigate(['description-hero'], {queryParams: {id: id}})
     
   }
 

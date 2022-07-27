@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListHeroesModule } from './pages/list-heroes/list-heroes.module';
 import { SharedModule } from './shared/shared.module';
+import { DescriptionHeroComponent } from './pages/description-hero/description-hero.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,    
   ],
   imports: [
     BrowserModule,

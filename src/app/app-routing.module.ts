@@ -13,6 +13,13 @@ const routes: Routes = [
       import('./pages/list-heroes/list-heroes.module').then(
         (m) => m.ListHeroesModule
       )
+  },
+  {
+    path: 'description-hero',
+    loadChildren: () =>
+      import('./pages/description-hero/description-hero.module').then(
+        (m) => m.DescriptionHeroModule
+      )
   }
 ];
 

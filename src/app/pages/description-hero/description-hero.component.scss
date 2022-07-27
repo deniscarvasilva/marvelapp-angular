@@ -1,0 +1,100 @@
+@import '../../../sass/colors';
+
+.container {
+  overflow: hidden;
+  max-width: 50rem;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 15rem;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+
+}
+
+button {
+  border-radius: 0.2rem;
+  background-color: $red;
+  color: #fff;
+  padding: 1rem;
+  font-weight: bold;
+  border: 0.1rem solid $red;
+
+}
+
+.details h1 {
+  color: $black;
+  padding: 1rem;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 3rem;
+}
+
+.details p {
+  color: $black;
+  padding: 1rem;
+  text-align: left;
+
+}
+
+.responsive {
+  overflow-x: auto;
+  margin: 0.5rem;
+  border: 0.1rem solid $grey;
+  border-radius: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  padding: 0.5rem;
+}
+
+.category-item {
+  padding: 0.2rem;
+}
+
+.back{
+  display: flex;
+  justify-content: center;
+}
+.right {
+  float: right;
+}
+
+@media screen and (max-width: 600px) {
+
+  .hero-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details h1 {
+    color: $black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1rem;
+  }
+
+  .right {
+    float: none;
+  }
+
+}

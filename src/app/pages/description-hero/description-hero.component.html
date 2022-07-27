@@ -1,0 +1,42 @@
+<div class="container" *ngIf="!isLoading">
+    <div class="hero-container">
+        <img [src]="hero.getImage()" alt="hero" />
+        <div class="details">
+            <h1>{{hero.name}}</h1>
+            <p>{{hero.description || "Não há descrição deste personagem"}}</p>
+        </div>
+
+
+    </div>
+
+    <div class="responsive">
+        <div class="category">
+            <h1 class="title">Comics</h1>
+            <div *ngFor="let item of hero.comics.items">
+                <div class="category-item">{{item.name}}</div>
+            </div>
+        </div>        
+    </div>   
+    <div class="responsive">
+        <div class="category">
+            <h1 class="title">Series</h1>
+            <div *ngFor="let item of hero.series.items">
+                <div class="category-item">{{item.name}}</div>
+            </div>
+        </div>        
+    </div>
+    <div class="responsive">
+        <div class="category">
+            <h1 class="title">Events</h1>
+            <div *ngFor="let item of hero.events.items">
+                <div class="category-item">{{item.name}}</div>
+            </div>
+        </div>               
+    </div>
+    <div class="back">
+        <button (click)="goBack()"> Voltar</button>
+    </div>
+    
+    
+
+</div>
