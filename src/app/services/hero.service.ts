@@ -1,6 +1,6 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, Subject } from 'rxjs';
+import { map, Subject } from 'rxjs';
 import { accessRequest, environment } from 'src/environments/environment';
 import { Hero } from '../models/hero';
 
@@ -23,13 +23,13 @@ export class HeroService {
       .pipe(map((data: any) => data.data))
       .subscribe((data: any) => {
 
-        var personagens: Hero[] = data.results.map(
-          (personagem: Hero) => {
-            return personagem = new Hero().deserialize(personagem);
+        var characters: Hero[] = data.results.map(
+          (characters: Hero) => {
+            return characters = new Hero().deserialize(characters);
           }
         );
 
-        this.listHeroes$.next(personagens);
+        this.listHeroes$.next(characters);
         this.isLoaded = false;
       });
   }
@@ -42,8 +42,7 @@ export class HeroService {
 
         var singleHero: Hero[] = data.results.map(
           (singleHero: Hero) => { 
-            singleHero = new Hero().deserialize(singleHero);
-            console.log(singleHero);
+            singleHero = new Hero().deserialize(singleHero);            
             return singleHero;
           }
         );

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/services/hero.service';
 import { RangeService } from 'src/app/services/range.service';
@@ -15,7 +15,7 @@ export class ListHeroesComponent implements OnInit {
     private rangeService: RangeService, 
     private heroService: HeroService,
     private router: Router) {
-    this.rangeService.listHeroesSliced$.subscribe(data => {this.list = data;console.log(this.list)});
+    this.rangeService.listHeroesSliced$.subscribe(data => this.list = data);
    }
 
   ngOnInit(): void {
