@@ -29,6 +29,9 @@ export class HeroService {
       this.listHeroes$.next(personagens);
     });
   }
+  selectHero(id:number) {
+    //continuar aqui
+  }
   setCategory(page: string): string {
     const startWith = this.filter ? "&nameStartsWith=" + this.filter : "";
     return `${environment.apiURL + page}?&offset=${this.offset}${startWith}`;
