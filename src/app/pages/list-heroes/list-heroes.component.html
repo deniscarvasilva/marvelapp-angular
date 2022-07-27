@@ -1,6 +1,10 @@
 <app-search></app-search>
-<app-range></app-range>
-<div class="responsive">
+<div *ngIf="showLoader()" class="loader">
+    <app-loader></app-loader>
+</div>
+
+<div class="responsive" *ngIf="!showLoader()">
+    
     <table>
         <tr>
             <th></th>
@@ -8,6 +12,7 @@
             <th class="mobile">Series</th>
             <th class="mobile">Eventos</th>
         </tr>
+        
         <tr *ngFor="let hero of list" (click)="descriptionHero(hero.id)">
             <td>
                 <app-hero-image [hero]="hero"></app-hero-image>
@@ -28,3 +33,5 @@
 <ng-template #noRegister>
     <td class="mobile"> Nenhum registro</td>
 </ng-template>
+
+<app-range></app-range>

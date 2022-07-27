@@ -11,10 +11,12 @@ export class HeroService {
   listHeroes$: Subject<Hero[]> = new Subject();
   selectedHero$: Subject<Hero> = new Subject();
   offset: number = 0;
+  isLoaded: boolean = false;
   filter: string = "";
   constructor(private http: HttpClient) { }
 
   getCharacters() {
+    this.isLoaded = true;
     const page = this.setCategory('characters');
     this.http
       .get<any>(page)
@@ -28,9 +30,11 @@ export class HeroService {
         );
 
         this.listHeroes$.next(personagens);
+        this.isLoaded = false;
       });
   }
   selectHero(id: number){
+    this.isLoaded = true;
     const url = this.getHero('characters/');
     this.http.get<any>(url + id)
       .pipe(map((data: any) => data.data))
@@ -44,6 +48,7 @@ export class HeroService {
           }
         );
         this.selectedHero$.next(singleHero[0]);
+        this.isLoaded = false;
       });
   }
   setCategory(page: string): string {

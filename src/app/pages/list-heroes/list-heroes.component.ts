@@ -22,6 +22,11 @@ export class ListHeroesComponent implements OnInit {
     this.heroService.getCharacters();
   }
 
+  showLoader(){
+    return this.heroService.isLoaded;
+
+  }
+
   descriptionHero(id:number) {
     this.router.navigate(['description-hero'], {queryParams: {id: id}})
     

@@ -34,6 +34,10 @@ export class DescriptionHeroComponent implements OnInit {
       this.heroService.selectHero(this.id);
     })
   }
+  showLoader(){
+    return this.heroService.isLoaded;
+
+  }
   goBack() {
     this.router.navigate(['heroes']);
   }

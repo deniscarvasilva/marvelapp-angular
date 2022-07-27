@@ -6,6 +6,11 @@
     border: 0.1rem solid $grey;
     border-radius: 0.2rem;
 }
+.loader{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;

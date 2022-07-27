@@ -1,4 +1,8 @@
-<div class="container" *ngIf="!isLoading">
+
+<div *ngIf="showLoader()" class="loader">
+    <app-loader></app-loader>
+</div>
+<div class="container" *ngIf="!showLoader()">
     <div class="hero-container">
         <img [src]="hero.getImage()" alt="hero" />
         <div class="details">
